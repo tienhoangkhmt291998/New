@@ -9,11 +9,6 @@ var ip_name = document.querySelector(".inpt--name");
 var ip_email = document.querySelector(".inpt--email");
 var ip_age = document.querySelector(".inpt--age");
 
-var array = [
-
-];
-
-
 // construstor function
 
 function Table (id,name,email,age){
@@ -31,17 +26,22 @@ function ShowForm(){
     btnAdd.classList.add("d-none");
 
 }
-
-
-
 function Hidden(){
     showForm.classList.add("d-none");
     btnAdd.classList.remove("d-none");
     GetValue();
 }
-
+var array=[
+    {
+        id:"Id",
+        name:"Name",
+        email:"Email",
+        age:"Age"
+    }
+]
 
 function GetValue(){
+   
     var tr = document.querySelectorAll("tr");
     let id = tr.length;
     let name = ip_name.value;
@@ -49,80 +49,74 @@ function GetValue(){
     let age = Number(ip_age.value);
     let obj = new Table(id,name,email,age);
 
+
     if(name == "" || email == "" || age <= 0){
+
         alert("Nhap lai nam hoac email hoac age");
+
     }else{
+
         array.push(obj);
-        Render(array);
+        // localStorage.setItem("list",JSON.stringify(array));
+        Render(table,array);
     }
 }
-
-
-// them tr
-
-function Render(row) {
-
-    var tr ="";
-    
-    for (i of row){
-        if (row.length > 0){
-            tr = `
-            <tboy>
-                    <tr>
-                        <td>${i.id}</td>
-                        <td>${i.name}</td>
-                        <td>${i.email}</td>
-                        <td>${i.age}</td>
-                        <td><button class="btn--red" >Xoa </button></td>
-                    </tr>
-            </tboy>
-            `;
-            table.innerHTML += tr;
+Render(table,array);
+function Render(container,row) {
+    var htmlTr = row.map(function(i,key){
+        if(key == 0){
+            return `
+        <tr>
+            <td>${i.id}</td>
+            <td>${i.name}</td>
+            <td>${i.email}</td>
+            <td>${i.age}</td>
+            <td></td>
+        </tr>
+        `;
+        }else{
+            return `
+        <tr>
+            <td>${i.id}</td>
+            <td>${i.name}</td>
+            <td>${i.email}</td>
+            <td>${i.age}</td>
+            <td><button class="btn--red" onclick='Remove(${i.id})'>Xoa </button></td>
+        </tr>
+        `;
         }
-    }
-    // if(row.length > 0){
-    //     tr = `
-    //         <tboy>
-    //                 <tr>
-    //                     <td>${row[row.length -1].id}</td>
-    //                     <td>${row[row.length -1].name}</td>
-    //                     <td>${row[row.length -1].email}</td>
-    //                     <td>${row[row.length -1].age}</td>
-    //                     <td><button class="btn--red" >Xoa </button></td>
-    //                 </tr>
-    //         </tboy>
-    //         `;
-    //     table.innerHTML += tr;
-    // }
+    });
+    var html = htmlTr.join('');
+    container.innerHTML = html;
 }
-Render(array);
-
-// search
-
 var search = document.querySelector(".btn--search");
 
 search.addEventListener("click",Search);
 
 function Search(){
     var key_search = document.querySelector(".inpt--search").value;
-    GetValueSearch(key_search,array);
+
+    var abc = array.filter(function(item,key){
+        
+        if(key_search == "all"){
+            return array;   
+        }else if((item.name === key_search) || (item.id ==="Id")){        
+            return item;
+        }
+       
+    });
+
+    console.log(abc);
+   return Render(table,abc);
 }
 
 
+// remove 
 
-function GetValueSearch(key1,array){
-    console.log(key1);
-    if(array.length > 0){
-       var list = array.filter(key=> key1 == key.name);
-       console.log(list);
-       Render(list)
-    }
-}
-
-
-
-// remove
-
-function Remove(id,array){
-
+function Remove(r){
+    // var i = r.parentNode.parentNode.rowIndex;
+    // console.log(i);
+    // table.deleteRow(i);
+    array.splice(r,1);
+    Render(table,array);
 }
