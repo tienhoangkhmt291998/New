@@ -5,39 +5,107 @@ var array =[
         name:"Name",
         email:"Email",
         age:"Age"
+    },
+    {
+        id:1,
+        name:"asd",
+        email: "tienhoangkhmt@gmail.com",
+        age:33
     }
-]
+];
 
 
 
 $(document).ready(function (){
+    // an hien form
     $(".btn--add").click(function (){
         $(this).hide();
         $(".form--save").removeClass("d-none");
     });
 
+
     $(".btn--save").click(function (){
         $(".form--save").addClass("d-none");
         $(".btn--add").show();
-        $("#table").html(Render(array))
-    })
+        // get value , check value
+
+        var value_name = $(".inpt--name").val();
+        var value_email = $(".inpt--email").val();
+        var value_age = $(".inpt--age").val();
+        if (value_name == "" || value_email == "" || value_age == ""){
+            alert("nhap lai thong tin")
+        }else {
+            array.push({
+                id:array.length,
+                name:value_name,
+                email: value_email,
+                age:value_age
+            });
+            $("#table").html(Render(array));
+        }
+
+    });
+    $(".inpt--search").keyup(Search);
 
 })
 
 // render
-
-function  Render(data){
-    for(i of data){
-        var html = `
-            <tr>
-                <th>${i.id}</th>
-                <th>${i.name}</th>
-                <th>${i.email}</th>
-                <th>${i.age}</th>
-                <th><button>Xoa</button></th>
-            </tr>
+$("#table").html(Render(array));
+function Render(row) {
+    console.log(row);
+    var htmlTr = row.map(function(i,key){
+        if(key == 0){
+            return `
+        <tr>
+            <td>${i.id}</td>
+            <td>${i.name}</td>
+            <td>${i.email}</td>
+            <td>${i.age}</td>
+            <td></td>
+        </tr>
         `;
-    }
-
+        }else{
+            return `
+        <tr>
+            <td>${i.id}</td>
+            <td>${i.name}</td>
+            <td>${i.email}</td>
+            <td>${i.age}</td>
+            <td><button class="btn--red" onclick='Remove(${i.id})'>Xoa </button></td>
+        </tr>
+        `;
+        }
+    });
+    var html = htmlTr.join('');
     return html;
+}
+
+
+// Search
+
+function Search(){
+    var key_search =$(".inpt--search").val();
+    var abc = array.filter(function(item,key){
+
+        if(key_search == ""){
+            return array;
+        }else if((item.name.indexOf(key_search) > -1) || (item.id ==="Id")){
+            return item;
+        }
+
+    });
+
+    return $("#table").html(Render(abc));
+}
+
+
+
+// REMOVE
+
+function Remove(r){
+    // var i = r.parentNode.parentNode.rowIndex;
+    // console.log(i);
+    // table.deleteRow(i);
+    array.splice(r,1);
+    $("#table").html(Render(array));
 }

@@ -100,13 +100,12 @@ function Search(){
         
         if(key_search == "all"){
             return array;   
-        }else if((item.name === key_search) || (item.id ==="Id")){        
+        }else if((item.name.indexOf(key_search) > -1) || (item.id ==="Id")){
             return item;
         }
        
     });
 
-    console.log(abc);
    return Render(table,abc);
 }
 
