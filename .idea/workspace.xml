@@ -20,23 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c3485af-3bba-49a4-a3ca-9f316f35719c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bai2/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai2/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai2/scss/base.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai2/scss/base.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai2/scss/base.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai2/scss/mixi.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai2/scss/mixi.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai2/scss/mixi.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai2/scss/modules.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai2/scss/modules.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai2/scss/modules.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai2/scss/table.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai2/scss/table.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai2/scss/table.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai2/scss/variable.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai2/scss/variable.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai2/scss/variable.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai3/Ajax/AJAX.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai3/Ajax/ajax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai3/CallBack/callback.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai3/CallBack/hoang" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai1/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Bai1/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/bai2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai2/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/bai2/jquery.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -74,6 +65,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -81,16 +73,29 @@
       <recent name="C:\Users\tomosia\Desktop\New\bai2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tomosia\Desktop\New\Bai3\Ajax" />
       <recent name="C:\Users\tomosia\Desktop\New\bai2" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.AJAX.html">
+    <configuration name="AJAX.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/New/Bai3/Ajax/AJAX.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/New/Bai1/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/New/bai2/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="jquery.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/bai2/jquery.js" working-dir="$PROJECT_DIR$/bai2">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.AJAX.html" />
         <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="Node.js.jquery.js" />
+        <item itemvalue="JavaScript Debug.index.html (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -102,7 +107,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606273060528</updated>
-      <workItem from="1606273061670" duration="4687000" />
+      <workItem from="1606273061670" duration="6290000" />
+      <workItem from="1606351590584" duration="3049000" />
+      <workItem from="1606355375906" duration="9600000" />
+      <workItem from="1606365876815" duration="755000" />
+      <workItem from="1606370810422" duration="12279000" />
     </task>
     <servers />
   </component>
@@ -119,8 +128,33 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="735" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606358859236">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="735" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1606358859236" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1606357247652">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606357247652" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1606357247652">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606357247652" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1606357247652">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606357247652" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1606357247652">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606357247652" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1606370893490">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1606370893490" />
     <state x="615" y="377" key="Vcs.Push.Dialog.v2" timestamp="1606274750508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
