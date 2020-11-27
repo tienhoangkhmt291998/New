@@ -20,14 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c3485af-3bba-49a4-a3ca-9f316f35719c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Bai3/Ajax/AJAX.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai3/Ajax/ajax.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai3/CallBack/callback.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai3/CallBack/hoang" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai1/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Bai1/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bai2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/bai2/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bai2/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/bai2/jquery.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +50,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/bai2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../traning-t12" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -111,7 +104,7 @@
       <workItem from="1606351590584" duration="3049000" />
       <workItem from="1606355375906" duration="9600000" />
       <workItem from="1606365876815" duration="755000" />
-      <workItem from="1606370810422" duration="12279000" />
+      <workItem from="1606370810422" duration="12798000" />
     </task>
     <servers />
   </component>
@@ -135,6 +128,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="735" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1606358859236" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1606383652923">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606383652923" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1606357247652">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
