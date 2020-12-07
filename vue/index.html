@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+   <style>
+    .red{
+        color:red;
+    }
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        text-align: center;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      ul{
+        display: flex;
+        list-style: none;
+      }
+      ul li{
+        padding: 5px;
+        margin: 0 2px;
+        border: 1px solid gray;
+        cursor: pointer;
+      }
+   </style>
+</head>
+<body>
+
+    <!-- <div class="" id="vue">
+        <li v-for="list in arr">
+            {{ list.id }}
+        </li>
+    </div> -->
+    <div id="vue">
+      <div class="add" v-show="show_add">
+        <input type="text"  name="name" v-model="name" placeholder="nhap nham vao day">
+        <input type="text" email="email" v-model="title" placeholder="nhap titiel vao day">
+        <button @click="add">Add</button>
+        <button @click="cannel">Cannel</button>
+      </div>
+      <button @click="show_Add" v-show="show_add_btn">add</button>
+    <div class="search">
+        <input type="text" v-model="keySearch"  placeholder="nhap tu khoa vao day">
+        <button button @click="search">Search</button>  
+    </div>
+
+        <table>
+            <tr>
+              <th>id</th>
+              <th>title</th>
+              <th></th>
+              <th></th>
+            </tr>
+            <tr v-for="(list, key) in search" :key="key">
+              <td>{{ list.id }}</td>
+              <td>{{ list.title }}</td>
+              <td><button @click="remove(list.id)">Xoa</button></td>
+              <td><button @click="edit(list.id)">edit</button></td>
+            </tr>
+        </table>
+        <model v-show="show"  :key_id="keyId" :title="keyTitle"
+          v-on:remove="removeArr"
+          v-on:cannel="cannel_use">
+
+        </model>
+      <div>
+        <edit-uses
+            v-show="show_edit"
+            :key_id="keyId"
+            v-on:save="change"
+            v-on:cannel="cannel_edit"
+        />
+      </div>
+        <ul>
+          <li v-for="(list,key) in pagination">
+            <a href="#" @click="location(key)"> {{ key }}</a>
+          </li>
+        </ul>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./index.js"></script>
+</body>
+</html>
