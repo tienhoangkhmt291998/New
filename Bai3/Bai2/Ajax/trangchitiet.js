@@ -2,9 +2,11 @@
 var url_string = window.location.href;
 var url = new URL(url_string);
 var c = Number(url.searchParams.get("id"));
-console.log(c);
+
+var arr=[];
 
 function getData(id){
+
     return new Promise((res,rej)=>{
         $.ajax({
             type: "get",
@@ -17,9 +19,10 @@ function getData(id){
 // goi data
 getData(c)
     .then((data)=>{
+        arr.push(data);
         Render(data);
     })
-    .catch((err)=>console.log(err))
+    .catch((err)=>console.log(err));
 
 
 function Render(data){
@@ -30,10 +33,23 @@ function Render(data){
             <div class="card-body">
             <h5 class="card-title">${data.title}</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a class="btn btn-primary" href="giohang.html"  >Mua San Pham</a>
+            <a class="btn btn-primary"  onclick="SaveLocal()" > Them vao gio hang </a>
             </div>
         </div>
     </div>
     `;
     $("#list-item").html(col);
+}
+
+function SaveLocal(){
+    localStorage.setItem("items",JSON.stringify(arr))
+    var x = JSON.stringify(localStorage.getItem("items"));
+
+
+    add(x);
+
+}
+function add(arr){
+    console.log(arr);
+    localStorage.setItem("arr",)
 }

@@ -4,15 +4,15 @@
 
 // output : 1 so van dong vien kia ve dich dau tien
 
-var Time=[1000,2000,3000,1500,2500,3500,5000,6000,7500,10000]
+var time=[1000, 2000, 3000,1500,2500,3500,5000,6000,7500,10000];
 
-function A(){
-    let random = Math.floor(Math.random()*Time.length);
+function a(){
+    let random = Math.floor(Math.random() * time.length);
     let x = (random , Time[random]);
 
     setTimeout(()=>{
         console.log("A")
-    },x)
+    }, x)
     return x;
 }
 function B(){
@@ -46,11 +46,13 @@ function D(){
     return x;
 }
 
-function Run(...callback){
-    console.log("nguoi ve dau tien la :")
-   callback.map((value,key)=>{
-        value();
-   })
+function Run(callback){
+    console.log(callback);
+    // console.log("nguoi ve dau tien la :")
+//    callback.map((value,key)=>{
+//         value();
+//    })
+
 
 
 }
@@ -58,6 +60,4 @@ console.log("Bat Dau !!!");
 
 setTimeout(()=>{
     Run(A,B,C,D);
-},3000)
-
-
+}, 3000)

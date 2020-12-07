@@ -1,0 +1,167 @@
+
+
+Vue.component('model', {
+    props:['keyid', 'title'],
+
+    data() {
+        return {
+            show1: false
+        }
+    },
+
+    methods: {
+
+        cannel () {
+            // let self = this;
+            this.show = false;
+            console.log("loi");
+        }
+    },
+
+    template: `
+        <div class="model" >
+            <div class="model--id">
+                {{ keyid }}
+            </div>
+            <div class="model--name">
+                {{ title }}
+            </div>
+            <button v-on="$listeners">OK</button>
+            <button v-on:click="cannel">Cannel</button>
+        </div>
+    `
+});
+
+
+Vue.component('add-uses', {
+
+    template: `
+        <div class="add-uses">
+            <input type="text"  name="name"  placeholder="nhap nham vao day">
+            <input type="text" email="email"  placeholder="nhap titiel vao day">
+            <button>Add</button>
+        </div>
+    `
+});
+
+
+var tempt_add = {
+
+    template: `
+    <div class="add-uses">
+        <input type="text"  name="name"  placeholder="nhap nham vao day">
+        <input type="text" email="email"  placeholder="nhap titiel vao day">
+        <button>Add</button>
+    </div>
+    `
+}
+
+
+
+var app = new Vue({
+
+    el:"#vue",
+
+    data () {
+        return {
+            arr: [],
+            name: "",
+            title: "",
+            keySearch: "",
+            show: false,
+            keyId: 0,
+            keyTitle: "",
+            index: 0,
+            currentIndex: 20
+        }
+    },
+    components: {
+        'add-uses':tempt_add    
+    },
+    methods: {
+        remove (id) {
+
+            this.show = true;
+
+            this.arr.map((item) => {
+                if (item.id === id) {
+                    this.keyId = item.id;
+                    this.keyTitle = item.title;
+                }
+            })
+
+        },
+
+
+        removeArr () {
+
+            this.show = false;
+
+            for(var i = 0; i < this.arr.length; i ++) {
+
+                if(this.arr[i].id === this.keyId) {
+
+                    this.arr.splice(i, 1);
+                }
+            }
+        },
+
+        add () {
+
+            this.arr.push({
+
+                id: this.arr[this.arr.length - 1].id + 1,
+
+                name: this.name,
+
+                title: this.title
+            })
+        },
+        location (key) {
+            let index = key * 20; //20
+            let currentIndex = index + 20; //40
+            this.index = index;
+            this.currentIndex = currentIndex;
+            // console.log(this.index);
+            // console.log(this.currentIndex);
+        }
+
+    },
+
+    created() {
+        axios.get("https://jsonplaceholder.typicode.com/todos")
+        .then( res =>
+            this.arr.push(...res.data)
+        ).catch((err) => {
+            console.log(err);
+        });
+    },
+
+    computed: {
+
+        search () {
+            let name = this.keySearch;
+
+            if(!name) {
+                return this.arr.slice(this.index, this.currentIndex);
+            }
+            return this.arr.filter(function (item) {
+                if (( item.title.indexOf(name) > -1 )) {
+                    return item;
+                }
+            })
+        },
+
+        pagination () {
+
+            let index = 0;
+
+            let currentIndex = this.arr.length / 20;
+
+            let arr_slice = this.arr.slice(index, currentIndex);
+
+            return arr_slice;
+        },
+    }
+
+});
