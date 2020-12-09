@@ -1,5 +1,5 @@
 
-Vue.component('model', {
+Vue.component('modal', {
     props:['key_id', 'title'],
 
     data () {
@@ -13,48 +13,52 @@ Vue.component('model', {
             this.$emit('remove')
         },
         cannel () {
-            this.$emit('cannel')
+            this.$emit('cannel',this.show1)
         }
     },
 
     template: `
-        <div class="model" >
+        <div class="model--fixed" >
             <div class="model--id">
                 {{ key_id }}
             </div>
             <div class="model--name">
                 {{ title }}
             </div>
-            <button @click="ok">OK</button>
-            <button @click="cannel">Cannel</button>
+                <button class="btn btn--add" @click="ok">OK</button>
+                <button class="btn btn--red" @click="cannel">Cannel</button>
         </div>
     `
 });
 
 
 Vue.component('edit-uses', {
-    props:['key_id'],
-    data () {
-        return {
-            change_title: ""
-        }
-    },
+
+    props:['key_id','key_title'],
+
+    // data () {
+    //     return {
+    //         change_title:"",
+    //     }
+    // },
 
     methods: {
         save () {
-            this.$emit('save', this.key_id, this.change_title)
+            this.$emit('save', this.key_id, this.key_title)
         },
         cannel () {
+
             this.$emit('cannel')
         }
     },
 
     template: `
-        <div class="edit">
-            <input name="edit" v-model="change_title"  placeholder="chinh sua title tai day"/>
+        <div class="edit model--fixed">
+            <input name="edit" v-model="key_title"   />
+            {{ key_title }}
             <div class="btn-groups">
-                <button @click="save"> Save </button>
-                <button @click="cannel"> Cannel </button>
+                <button class="btn btn--add" @click="save"> Save </button>
+                <button class="btn btn--red" @click="cannel"> Cannel </button>
             </div>
         </div>
     `
@@ -65,7 +69,9 @@ var app = new Vue({
     el:"#vue",
 
     data () {
+
         return {
+
             arr: [],
             show: false,
             show_add:false,
@@ -76,6 +82,7 @@ var app = new Vue({
             keySearch: "",
             keyId: 0,
             keyTitle: "",
+            title_user:"",
             index: 0,
             currentIndex: 20
         }
@@ -92,9 +99,8 @@ var app = new Vue({
             this.show_add_btn = true;
         },
 
-        cannel_use () {
-
-            this.show = false;
+        cannel_use (show) {
+            this.show = show;
         },
 
         cannel_edit () {
@@ -113,12 +119,11 @@ var app = new Vue({
             })
         },
 
-
         removeArr () {
 
             this.show = false;
 
-            for(var i = 0; i < this.arr.length; i ++) {
+            for (var i = 0; i < this.arr.length; i ++) {
 
                 if(this.arr[i].id === this.keyId) {
 
@@ -128,30 +133,41 @@ var app = new Vue({
         },
 
         add () {
+
+            // let max = this.arr[this.arr.length - 1].id ;
+            let max = Math.max(...this.arr.map(item => item.id));
+
             this.show_add = false;
             this.show_add_btn = true;
-            this.arr.push({
 
-                id: this.arr[this.arr.length - 1].id + 1,
+            if ( this.name === "" || this.title === "" ) {
+                alert("yeu cau nhap lai");
 
-                name: this.name,
+            } else {
+                this.arr.push({
 
-                title: this.title
-            })
+                    id: max + 1,
+
+                    name: this.name,
+
+                    title: this.title
+                })
+            }
         },
 
         change (id, title) {
-            // console.log(id);
-            // console.log(title);
 
-            if(title){
-                for(item in this.arr){
-                    if(this.arr[item].id === id){
+            if (title) {
+
+                for ( item in this.arr ) {
+
+                    if ( this.arr[item].id === id ) {
+
                         this.arr[item].title = title;
-                        this.show_edit =  false;                  
+                        this.show_edit =  false;
                     }
                 }
-            }else{
+            } else {
                 alert("yeu cau nhap lai")
             }
 
@@ -161,9 +177,11 @@ var app = new Vue({
 
             this.show_edit = true;
 
-            for(item in this.arr){
-                if(this.arr[item].id === id){
-                    this.keyId = this.arr[item].id;                   
+            for (item in this.arr) {
+
+                if (this.arr[item].id === id) {
+                    this.keyId = this.arr[item].id;
+                    this.title_user= this.arr[item].title;
                 }
             }
         },
@@ -173,13 +191,31 @@ var app = new Vue({
             let currentIndex = index + 20; //40
             this.index = index;
             this.currentIndex = currentIndex;
-            // console.log(this.index);
-            // console.log(this.currentIndex);
+
+            let el= document.querySelectorAll('.pagination li');
+
+            for ( let i = 0 ; i < el.length ; i++ ) {
+
+                    el[i].classList.remove("active");
+
+                if ( i === key ) {
+
+                    el[i].classList.add("active");
+                }
+            }
+        },
+
+        next () {
+            console.log("next");
+        },
+
+        prev () {
+            console.log("prev");
         }
 
     },
 
-    created() {
+    created () {
         axios.get("https://jsonplaceholder.typicode.com/todos")
         .then( res =>
             this.arr.push(...res.data)
@@ -191,12 +227,15 @@ var app = new Vue({
     computed: {
 
         search () {
+
             let name = this.keySearch;
 
-            if(!name) {
+            if (!name) {
                 return this.arr.slice(this.index, this.currentIndex);
             }
+
             return this.arr.filter(function (item) {
+
                 if (( item.title.indexOf(name) > -1 )) {
                     return item;
                 }
