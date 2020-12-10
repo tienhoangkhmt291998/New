@@ -34,7 +34,7 @@ Vue.component('modal', {
 
 Vue.component('edit-uses', {
 
-    props:['key_id','key_title'],
+    props:['key_id', 'key_title'],
 
     // data () {
     //     return {
@@ -54,8 +54,7 @@ Vue.component('edit-uses', {
 
     template: `
         <div class="edit model--fixed">
-            <input name="edit" v-model="key_title"   />
-            {{ key_title }}
+            <input name="edit" v-model="key_title" />
             <div class="btn-groups">
                 <button class="btn btn--add" @click="save"> Save </button>
                 <button class="btn btn--red" @click="cannel"> Cannel </button>
@@ -100,11 +99,12 @@ var app = new Vue({
         },
 
         cannel_use (show) {
+            // console.log(self.app.show);
             this.show = show;
         },
 
         cannel_edit () {
-            this.show_edit =  false;
+            this.show_edit = false;
         },
 
         remove (id) {
@@ -123,7 +123,7 @@ var app = new Vue({
 
             this.show = false;
 
-            for (var i = 0; i < this.arr.length; i ++) {
+            for (let i = 0; i < this.arr.length; i ++) {
 
                 if(this.arr[i].id === this.keyId) {
 
@@ -246,7 +246,7 @@ var app = new Vue({
 
             let index = 0;
 
-            let currentIndex = this.arr.length / 20;
+            let currentIndex = Math.ceil(this.arr.length / 20);
 
             let arr_slice = this.arr.slice(index, currentIndex);
 

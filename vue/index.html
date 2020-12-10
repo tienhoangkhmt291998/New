@@ -45,11 +45,6 @@
 </head>
 <body>
 
-    <!-- <div class="" id="vue">
-        <li v-for="list in arr">
-            {{ list.id }}
-        </li>
-    </div> -->
     <div id="vue">
       <div class="modal"  v-show="show_add">
         <div class="add">
@@ -73,7 +68,7 @@
               <th></th>
               <th></th>
             </tr>
-            <tr v-for="(list, key) in search" :key="key">
+            <tr v-for="(list, key) in search" :key="list.id">
               <td>{{ list.id }}</td>
               <td>{{ list.title }}</td>
               <td><button class="btn btn--red" @click="remove(list.id)">Xoa</button></td>
@@ -81,7 +76,9 @@
             </tr>
         </table>
        <div class="modal" v-show="show">
-          <modal   :key_id="keyId" :title="keyTitle"
+          <modal
+          :key_id="keyId"
+          :title="keyTitle"
           v-on:remove="removeArr"
           v-on:cannel="cannel_use">
 
