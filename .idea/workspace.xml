@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c3485af-3bba-49a4-a3ca-9f316f35719c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1c3485af-3bba-49a4-a3ca-9f316f35719c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,7 +48,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../traning-t12" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Vue-Cli/app-admin" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -105,6 +103,7 @@
       <workItem from="1606355375906" duration="9600000" />
       <workItem from="1606365876815" duration="755000" />
       <workItem from="1606370810422" duration="12798000" />
+      <workItem from="1607936405973" duration="206000" />
     </task>
     <servers />
   </component>
@@ -128,9 +127,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="735" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1606358859236" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1606383652923">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1892" y="193" key="FileChooserDialogImpl" timestamp="1607936612501">
+      <screen x="1366" y="0" width="1366" height="728" />
     </state>
+    <state x="1892" y="193" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1607936612501" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606383652923" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1606357247652">
       <screen x="0" y="0" width="1920" height="1040" />
