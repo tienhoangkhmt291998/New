@@ -9,5 +9,8 @@ Vue.use(ElementUI);
 new Vue({
   router,
   store,
+  created() {
+    this.$store.dispatch('loadData')
+  },
   render: h => h(App)
 }).$mount('#app')

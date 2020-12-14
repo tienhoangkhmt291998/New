@@ -4,10 +4,24 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/User">User</router-link>
     </div>
-
+    <el-button align="left" type="primary" v-show="this.$store.state.btn_new" @click="newUser" >New User</el-button>
     <router-view/>
   </div>
 </template>
+
+<script>
+
+export default {
+  methods: {
+    newUser() {
+      this.$router.push("/User/New")
+      this.$store.state.btn_new = false
+    }
+
+  }
+
+}
+</script>
 
 <style>
 #app {
