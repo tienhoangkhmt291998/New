@@ -1,6 +1,6 @@
 <template>
   <el-table
-    :data="arr.filter(data => !this.search || data.title.toLowerCase().includes(this.search.toLowerCase()))"
+    :data="this.$store.state.arr.filter(data => !this.search || data.title.toLowerCase().includes(this.search.toLowerCase()))"
     style="width: 100%">
     <el-table-column
       label="Id"
@@ -18,50 +18,56 @@
           v-model="search"
           size="mini"/>
       </template>
-      
-        <el-button align="letf" type="primary">Primary</el-button>
 
-      <template slot-scope="scope">
+      <template  slot-scope="scope">
         <el-button
           size="mini"
-          @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
+          @click="handleEdit(scope.row.id)">Edit</el-button>
         <el-button
           size="mini"
           type="danger"
-          @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
+          @click="handleDelete(scope.row.id)">Delete</el-button>
       </template>
     </el-table-column>
   </el-table>
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 
   export default {
 
     data() {
-
       return {
-        arr:[],
+        arr:this.$store.state.arr,
         search: this.$store.state.search,
       }
     },
     methods: {
-      handleEdit(index, row) {
-        console.log(index, row);
-        this.$router.push('User/New');
+      handleEdit(index) {
+        console.log(index);
+        this.$router.push('/User/:userId/edit')
       },
-      handleDelete(index, row) {
-        console.log(index, row);
+
+      handleDelete(index) {
+
+        let id = this.$store.state.arr;
+
+        for (let i = 0; i < id.length; i++) {
+
+          if (id[i].id === index){
+            id.splice(i, 1)
+          }
+        }
       }
     },
-     mounted () {
-      axios.get("https://jsonplaceholder.typicode.com/todos")
-      .then ((res) => {
-        this.arr.push(...res.data)
-      })
-      .catch (err => console.log(err))
-    }
+    // mounted () {
+    //   axios.get("https://jsonplaceholder.typicode.com/todos")
+    //   .then ((res) => {
+    //     this.arr=res.data
+    //   })
+    //   .catch (err => console.log(err))
+    // }
   }
-  
+
 </script>
