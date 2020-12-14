@@ -3,7 +3,6 @@
     <el-form-item
         prop="email"
         label="Title">
-
       <el-input v-model="title"></el-input>
     </el-form-item>
 
@@ -32,7 +31,7 @@ export default {
   methods: {
     submitForm() {
       let maxId = Math.max(...this.$store.state.arr.map(item => item.id))
-      if (this.title === "" || this.nam === ""){
+      if (this.title === "" || this.name === ""){
         alert("nhap lai thong ")
       }else {
         this.$store.state.arr.push({
@@ -47,7 +46,6 @@ export default {
 
     cancelSubmit() {
       this.$store.state.btn_new = true
-      this.$store.dispatch('handleSave')
       this.$router.push("/User")
     }
   }

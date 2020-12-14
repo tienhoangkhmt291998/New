@@ -5,6 +5,7 @@
     <el-table-column
       label="Id"
       prop="id">
+
     </el-table-column>
     <el-table-column
       label="Title"
@@ -22,11 +23,11 @@
       <template  slot-scope="scope">
         <el-button
           size="mini"
-          @click="handleEdit(scope.row.id)">Edit</el-button>
+          @click="handleEdit(scope.row.id,scope.row.title)">Edit</el-button>
         <el-button
           size="mini"
           type="danger"
-          @click="handleDelete(scope.row.id)">Delete</el-button>
+          @click="handleDelete(scope.row.id, scope.row.title)">Delete</el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -35,31 +36,50 @@
 <script>
 // import axios from 'axios';
 
-  export default {
+export default {
 
-    data() {
+  data() {
       return {
         arr:this.$store.state.arr,
         search: this.$store.state.search,
       }
     },
     methods: {
-      handleEdit(index) {
-        console.log(index);
-        this.$router.push('/User/:userId/edit')
+      handleEdit(index, title) {
+        this.$store.state.title = title
+        this.$router.push(`/User/${index}/edit`)
       },
 
-      handleDelete(index) {
+      handleDelete(index, title) {
 
-        let id = this.$store.state.arr;
+        this.$confirm(title, 'Cảnh Cáo', {
 
-        for (let i = 0; i < id.length; i++) {
+          confirmButtonText: 'OK',
+          cancelButtonText: 'Cancel',
+          type: 'warning'
+        }).then(() => {
+          let id = this.$store.state.arr;
 
-          if (id[i].id === index){
-            id.splice(i, 1)
+          for (let i = 0; i < id.length; i++) {
+
+            if (id[i].id === index){
+              id.splice(i, 1)
+            }
           }
-        }
-      }
+
+          this.$message({
+            type: 'success',
+            message: 'Xóa Thành Công',
+          });
+
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: 'Đã Hủy Xóa'
+          });
+        });
+      },
+
     },
     // mounted () {
     //   axios.get("https://jsonplaceholder.typicode.com/todos")

@@ -12,7 +12,8 @@ export const store = new Vuex.Store({
         btn_new:true,
         arr:[],
         loading:true,
-        text:"tomosia"
+        change_title:"",
+        userId: 0
     },
     actions: {
         loadData({
@@ -38,8 +39,20 @@ export const store = new Vuex.Store({
             state.loading = loading
         },
         handleAdd () {
+            let arr = this.state.arr;
 
-            console.log(this.state.text)
+            let x = Number(this.state.userId)
+
+            console.log(typeof x);
+
+            for (let i = 0; i < arr.length; i++) {
+
+                if (x === this.state.arr[i].id) {
+
+                    arr[i].title = this.state.title;
+                    console.log(arr[i].title)
+                }
+            }
 
         }
     },
